@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&family=Roboto:wght@300;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Muli", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 90vw; /* viewport width*/
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /*background'untekrarlanmasınıengeller*/
+  height: 80vh;
+  border: none;
+  border-radius: 50px;
+
+  /* for other browsers*/
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+
+  color: white;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px; /*tüm paneller arasında 10px boşluk bırakır.*/
+  
+  position: relative;
+  transition: flex 0.7s ease-in;
+  -webkit-transition: flex 0.7s ease-in;
+  -moz-transition: flex 0.7s ease-in;
+  -ms-transition: flex 0.7s ease-in;
+  -o-transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute; /*position:absolute; yapınca başlık panelden bağımsız hale gelir. */
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  /*.panel ile .active arasında boşluk bırakma */
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3 ease in 0.4s;
+  -webkit-transition: opacity 0.3 ease in 0.4s;
+  -moz-transition: opacity 0.3 ease in 0.4s;
+  -ms-transition: opacity 0.3 ease in 0.4s;
+  -o-transition: opacity 0.3 ease in 0.4s;
+}
+
+/* media queries for responsive design */
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
